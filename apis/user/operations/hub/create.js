@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const { HubModel, userModel } = require('../../../../schemas');
+var findHashtags = require('find-hashtags');
 
 const CreateQuery = app.post('/create-hub', (req, res) => {
     const PostType = req.body.PostType;
@@ -17,6 +18,9 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                 const userTotalPost = result.userTotalPosts;
                 const userName = result.name;
                 const UserImage = result.image;
+                const HashtagHub= findHashtags(req.body.HashtagHub)
+    // console.log(findHashtags(Hashtag));
+
                 if (PostType === 'post') {
                     const HubCenterCreate = new HubModel({
                         userId: req.body.userId,
@@ -28,7 +32,8 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         Purpose:req.body.Purpose,
                         Video: req.body.Video,
                         creators: req.body.creators,
-                        Hashtags: req.body.Hashtags
+                        AboutPost:req.body.AboutPost,
+                        HashtagHub:HashtagHub,
 
                     })
                     HubCenterCreate.save((error, result) => {
@@ -63,7 +68,9 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         TimePosted: dateTime,
                         Video: req.body.Video,
                         questionReason: req.body.questionReason,
-                        Hashtags: req.body.Hashtags
+                        AboutPost:req.body.AboutPost,
+                        HashtagHub:HashtagHub,
+
 
                     })
                     HubCenterCreate.save((error, result) => {
@@ -87,6 +94,8 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         }
                     })
                 } else if (PostType === 'job') {
+                const Tag= findHashtags(req.body.Tag)
+
                     const HubCenterCreate = new HubModel({
                         userId: req.body.userId,
                         userImage: UserImage,
@@ -104,7 +113,10 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         jobSalaryRange: req.body.jobSalaryRange,
                         jobApplicantsId:[],
                         Startdate: req.body.Startdate,
-                        Hashtags: req.body.Hashtags,
+                        AboutPost:req.body.AboutPost,
+                        HashtagHub:HashtagHub,
+                        Tag:Tag
+
 
 
                     })
@@ -140,7 +152,9 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         Purpose:req.body.Purpose,
                         projectDescription: req.body.projectDescription,
                         Workedusers: req.body.Workedusers,
-                        Hashtags: req.body.Hashtags
+                        AboutPost:req.body.AboutPost,
+                        HashtagHub:HashtagHub,
+
 
                     })
                     HubCenterCreate.save((error, result) => {

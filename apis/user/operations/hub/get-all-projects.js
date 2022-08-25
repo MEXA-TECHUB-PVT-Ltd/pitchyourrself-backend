@@ -1,3 +1,4 @@
+
 const express = require('express')
 const { HubModel } = require('../../../../schemas')
 
@@ -11,5 +12,6 @@ const GetUserRecipients = app.get('/get-all-project-posts', (req, res) => {
             res.send(result)
         }
     })
+
 })
 module.exports = GetUserRecipients

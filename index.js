@@ -49,8 +49,6 @@ app.use('/admin',
     require('./apis/admin/operations/jobPurposeAdd'),
     require('./apis/admin/operations/get-all-job-purpose'),
 
-
-
 )
 ////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////User APIS////////////////////////////////////////
@@ -103,8 +101,6 @@ require('./apis/user/operations/recommendation/userPitch/getAllPitchComments'),
 require('./apis/user/operations/favouritesProfile/addProfileFav'),
 require('./apis/user/operations/favouritesProfile/getUserFavProfiles'),
 require('./apis/user/operations/favouritesProfile/RemoveProfileFav'),
-
-
 // Saved Posts 
 require('./apis/user/operations/savedItems/addHub'),
 require('./apis/user/operations/savedItems/get-user-saved-hubs'),
@@ -117,22 +113,23 @@ require('./apis/user/operations/applyForJob/getUserAppliedJobs'),
 require('./apis/user/operations/LikeProfileUser/hit-like'),
 require('./apis/user/operations/LikeProfileUser/unlike'),
 require('./apis/user/operations/LikeProfileUser/get-all-user-profile-likes'),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//search 
+require('./apis/user/operations/searchData/searchByPerson'),
+require('./apis/user/operations/searchData/searchByHashTag'),
+require('./apis/user/operations/searchData/searchTagHub'),
+// Profile Video 
+require('./apis/user/operations/ProfileVideo/createVideo'),
+require('./apis/user/operations/ProfileVideo/DeleteVideo'),
+require('./apis/user/operations/ProfileVideo/GetVideo'),
+require('./apis/user/operations/ProfileVideo/UpdateVideo'),
+require('./apis/user/operations/ProfileVideo/getUserProfileVideo'),
+require('./apis/user/operations/ProfileVideo/changeHidden'),
+require('./apis/user/operations/ProfileVideo/changeDownloadable'),
+// Add Contacts 
+require('./apis/user/operations/addContacts/addContacts'),
+require('./apis/user/operations/addContacts/get-Contact'),
+require('./apis/user/operations/addContacts/get-all-user-video-contacts'),
+require('./apis/user/operations/addContacts/removeContact'),
 
 
 )

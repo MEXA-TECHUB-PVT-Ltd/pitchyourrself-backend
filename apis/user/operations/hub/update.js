@@ -11,6 +11,7 @@ const UpdateProduct = app.put('/update-hub', (req, res) => {
                 res.send("invalid Hub Id")
 
             } else {
+                const HashtagHub= findHashtags(result.HashtagHub)
             const PostType = result.PostType;
             if (PostType === 'post') {
                 const updateData = {
@@ -18,7 +19,7 @@ const UpdateProduct = app.put('/update-hub', (req, res) => {
                         PostType: PostType,
                         Video: req.body.Video,
                         creators: req.body.creators,
-                        Hashtags: req.body.Hashtags
+                        HashtagHub: HashtagHub
                     }
                     const options = {
                         new: true
@@ -36,7 +37,8 @@ const UpdateProduct = app.put('/update-hub', (req, res) => {
                     PostType: PostType,
                     Video: req.body.Video,
                     questionReason: req.body.questionReason,
-                    Hashtags: req.body.Hashtags
+                    HashtagHub: HashtagHub
+
                 }
                 const options = {
                     new: true
@@ -60,7 +62,8 @@ const UpdateProduct = app.put('/update-hub', (req, res) => {
                     joblocation: req.body.joblocation,
                     jobSalaryRange:req.body.jobSalaryRange,
                     Startdate: req.body.Startdate,
-                    Hashtags: req.body.Hashtags
+                    HashtagHub: HashtagHub
+
                 }
                 const options = {
                     new: true
@@ -80,7 +83,8 @@ const UpdateProduct = app.put('/update-hub', (req, res) => {
                     Video: req.body.Video,
                     projectDescription: req.body.projectDescription,
                     Workedusers: req.body.Workedusers,
-                    Hashtags: req.body.Hashtags
+                    HashtagHub: HashtagHub
+
                 }
                 const options = {
                     new: true

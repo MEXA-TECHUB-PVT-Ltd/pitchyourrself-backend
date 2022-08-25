@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
 const { userModel } = require('../../../schemas')
+var findHashtags = require('find-hashtags');
 
 const UpdateUser = app.put('/update-user', (req, res) => {
+    const ProfileHashtag= findHashtags(req.body.ProfileHashtag)
+    console.log(ProfileHashtag)
     const updateData = {
         name: req.body.name,
         image:req.body.image,
@@ -11,7 +14,7 @@ const UpdateUser = app.put('/update-user', (req, res) => {
         profileVideo:req.body.profileVideo,
         phoneNumber:req.body.phoneNumber,
         uploadDocument:req.body.uploadDocument,
-        ProfileHashtag:req.body.ProfileHashtag,
+        ProfileHashtag:ProfileHashtag,
     }
     const options = {
         new: true

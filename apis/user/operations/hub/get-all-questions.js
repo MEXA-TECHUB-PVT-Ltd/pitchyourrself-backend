@@ -11,5 +11,6 @@ const GetUserRecipients = app.get('/get-all-question-posts', (req, res) => {
             res.send(result)
         }
     })
+
 })
 module.exports = GetUserRecipients

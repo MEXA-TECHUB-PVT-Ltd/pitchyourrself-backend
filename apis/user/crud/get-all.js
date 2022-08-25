@@ -15,5 +15,7 @@ const GetAllUsers = app.get('/get-all-user', (req, res) => {
     .populate("savedHubsId")
     .populate("userAppliedJobsId")
     .populate("LikesUsersId")
+    .populate("profileVideoId")
+    
 })
 module.exports = GetAllUsers

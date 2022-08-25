@@ -22,7 +22,10 @@ const userSchema = mongoose.Schema({
     profession:String,
     bio:String,
     uploadDocument:String,
-    profileVideo:String,
+    profileVideoId:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userProfileVideo'
+    }],
     phoneNumber:String,
     profileStatus:String,
     ProfileHashtag:[{
@@ -54,7 +57,40 @@ const userSchema = mongoose.Schema({
     LikesUsersId:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userLikesProfile'
-    }]
+    }],
+})
+const userProfileVideoSchema = mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    title:String,
+    pdf:String,
+    Img:String,
+    link:String,
+    email:String,
+    AddContactId:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Contacts'
+    }],
+    hidden:Boolean,
+    Downloadable:Boolean
+})
+const ContactsSchema = mongoose.Schema({
+    videoId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userProfileVideo'
+    },
+    contactId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    contactName:String,
+    contactNumber:String,
+    contactImg:String,
+    contactProfession:String,
+    contactBio:String
+    
 })
 const userLikesProfileSchema = mongoose.Schema({
     userId: {
@@ -126,6 +162,7 @@ const HubSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
+    AboutPost:String,
     userImage: String,
     userName:String,
     Title: String,
@@ -150,10 +187,13 @@ const HubSchema = mongoose.Schema({
         ref: 'ApplyJob'
     }],
     projectDescription:String,
+    Tag:[{
+        type:String
+    }],
     Workedusers:[{
         type:String
     }],
-    Hashtags:[{
+    HashtagHub:[{
         type:String
     }],
     RecommendationsPitchId:[{
@@ -217,11 +257,14 @@ const ApplyJobModel = mongoose.model('ApplyJob', ApplyJobSchema, 'ApplyJob')
 const userLikesProfileModel = mongoose.model('userLikesProfile', userLikesProfileSchema, 'userLikesProfile')
 const adminjobPurposeModel = mongoose.model('adminjobPurpose', adminjobPurposeSchema, 'adminjobPurpose')
 
+const userProfileVideoModel = mongoose.model('userProfileVideo', userProfileVideoSchema, 'userProfileVideo')
+const ContactsModel = mongoose.model('Contacts', ContactsSchema, 'Contacts')
 
 
 
 module.exports = {
     adminModel,
+    ContactsModel,
     adminjobPurposeModel,
     userLikesProfileModel,
     adminSocialLinkModel,
@@ -234,7 +277,8 @@ module.exports = {
     RecommentdationsPitchModel,
     favouriteUsersProfileModel,
     savedHubModel,
-    ApplyJobModel
+    ApplyJobModel,
+    userProfileVideoModel
 
 
 }

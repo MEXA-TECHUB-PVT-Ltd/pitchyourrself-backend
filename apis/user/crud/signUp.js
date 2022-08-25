@@ -11,6 +11,7 @@ const CreateUser = app.post('/signup-user', (req, res) => {
             res.send(error)
         } else {
             // res.send(result)
+          
             if (result === undefined || result.length == 0) {
                 // console.log(' doctor not exist')
                 const user = new userModel({
@@ -21,20 +22,20 @@ const CreateUser = app.post('/signup-user', (req, res) => {
                     session: session,
                     profession: null,
                     bio:null,
-                    profileVideo:null,
+                    profileVideoId:[],
                     profileStatus:'Public',
                     phoneNumber:null,
                     userTotalPosts:0,
                     TotalLikes:0,
                     uploadDocument:null,
-                    ProfileHashtag:null,
                     verifyStatus:true,
                     userAppliedJobsId:[],
                     UserProfileLinkId:[],
                     RecommendationsUserId:[],
                     favouritesId:[],
                     savedHubsId:[],
-                    LikesUsersId:[]
+                    LikesUsersId:[],
+                    ProfileHashtag:null
 
                 })
                 user.save((error, result) => {

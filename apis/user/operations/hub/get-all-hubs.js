@@ -9,6 +9,9 @@ const GetAllUsers = app.get('/get-all-hubs', (req, res) => {
         } else {
             res.send(result)
         }
-    }).populate("RecommendationsPitchId").populate("jobApplicantsId").populate("userId")
+    }).populate("RecommendationsPitchId")
+    .populate("jobApplicantsId")
+    .populate("userId")
+   
 })
 module.exports = GetAllUsers
