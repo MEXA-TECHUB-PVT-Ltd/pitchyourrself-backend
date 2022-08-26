@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const { HubModel } = require('../../../../schemas')
+var findHashtags = require('find-hashtags');
 
 const UpdateProduct = app.put('/update-hub', (req, res) => {
     HubModel.findById(req.body._id, (error, result) => {
