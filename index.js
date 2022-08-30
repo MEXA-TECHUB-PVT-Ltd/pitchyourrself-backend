@@ -84,6 +84,8 @@ require('./apis/user/operations/hub/get-all-questions'),
 require('./apis/user/operations/hub/get'),
 require('./apis/user/operations/hub/getAllUserHubs'),
 require('./apis/user/operations/hub/update'),
+require('./apis/user/operations/hub/gethubpage'),
+
 // Social Media link 
 require('./apis/user/operations/add-social-media-link/add-social-links-user'),
 require('./apis/user/operations/add-social-media-link/delete-link'),
