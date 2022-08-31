@@ -173,7 +173,8 @@ const HubSchema = mongoose.Schema({
     Video:String,
     thumbnail:String,
     creators:[{
-            type:String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
         }],
     questionReason:String,
     postCreaters:String,
@@ -193,7 +194,8 @@ const HubSchema = mongoose.Schema({
         type:String
     }],
     Workedusers:[{
-        type:String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
     }],
     HashtagHub:[{
         type:String
@@ -201,8 +203,28 @@ const HubSchema = mongoose.Schema({
     RecommendationsPitchId:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'RecommentdationsPitch'
+    }],
+    LikedBy:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    }],
+    TotalLikes:Number,
+    SavedBy:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
     }]
 
+})
+const userLikesHubSchema = mongoose.Schema({
+    hubId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'hub'
+    },
+    LikedById: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    
 })
 const ApplyJobSchema = mongoose.Schema({
     userId: {
@@ -263,11 +285,13 @@ const adminjobPurposeModel = mongoose.model('adminjobPurpose', adminjobPurposeSc
 
 const userProfileVideoModel = mongoose.model('userProfileVideo', userProfileVideoSchema, 'userProfileVideo')
 const ContactsModel = mongoose.model('Contacts', ContactsSchema, 'Contacts')
+const userLikesHubModel = mongoose.model('userLikesHub', userLikesHubSchema, 'userLikesHub')
 
 
 
 module.exports = {
     adminModel,
+    userLikesHubModel,
     ContactsModel,
     adminjobPurposeModel,
     userLikesProfileModel,

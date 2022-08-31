@@ -1,25 +1,29 @@
 const express = require('express')
-const { userLikesHubModel, HubModel,savedHubModel } = require('../../../../schemas')
+const { userLikesHubModel, HubModel } = require('../../../../schemas')
 
 const app = express()
 // Error 
-const GetUserRecipients = app.get('/unsave-hub', (req, res) => {
-    savedHubModel.find({ userId: req.query.userId, hubId: req.query.hubId }, (error, result) => {
+const GetUserRecipients = app.get('/unlike-hub-user', (req, res) => {
+    userLikesHubModel.find({ LikedById: req.query.userId, hubId: req.query.hubId }, (error, result) => {
         if (error) {
             res.send(error)
         } else {
                 const HubId = req.query.hubId;
                 const LikesId = result._id;
+                // res.send(result)
 
                 HubModel.findById(HubId, (error, result) => {
                     if (error) {
                         res.send(error)
                     } else {
+                        res.send(result)
 
+                        const LIkesAdd = parseInt(result.TotalLikes) - parseInt(1)
                         const updateData = {
                             $pull: {
-                                SavedBy: req.query.userId,
+                                LikedBy: req.query.userId,
                             },
+                            TotalLikes: LIkesAdd
                         }
                         const options = {
                             new: true
@@ -28,7 +32,7 @@ const GetUserRecipients = app.get('/unsave-hub', (req, res) => {
                             if (error) {
                                 res.send(error)
                             } else {
-                                res.send(result)
+                                // res.send(result)
                             }
                         })
                         userLikesHubModel.findByIdAndDelete(LikesId, (error, result) => {
@@ -39,7 +43,11 @@ const GetUserRecipients = app.get('/unsave-hub', (req, res) => {
                         })
                     }
                 })
+           
+
         }
     })
+
+
 })
 module.exports = GetUserRecipients
