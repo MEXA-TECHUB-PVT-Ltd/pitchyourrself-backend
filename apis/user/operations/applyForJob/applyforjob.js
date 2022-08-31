@@ -13,7 +13,8 @@ const CompleteSocialLinkProfile = app.post('/apply-for-job', (req, res) => {
       const NewJobApplicant = new ApplyJobModel({
                 userId: req.body.userId,
                hubId:req.body.hubId,
-               video:req.body.video
+               video:req.body.video,
+               thumbnail:req.body.thumbnail
             })
             NewJobApplicant.save((error, result) => {
                 if (error) {

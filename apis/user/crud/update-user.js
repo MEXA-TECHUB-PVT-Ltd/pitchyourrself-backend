@@ -11,7 +11,6 @@ const UpdateUser = app.put('/update-user', (req, res) => {
         image:req.body.image,
         profession:req.body.profession,
         bio:req.body.bio,
-        profileVideo:req.body.profileVideo,
         phoneNumber:req.body.phoneNumber,
         uploadDocument:req.body.uploadDocument,
         ProfileHashtag:ProfileHashtag,

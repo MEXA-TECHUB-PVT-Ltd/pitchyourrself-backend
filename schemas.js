@@ -69,6 +69,7 @@ const userProfileVideoSchema = mongoose.Schema({
     Img:String,
     link:String,
     email:String,
+    thumbnail:String,
     AddContactId:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Contacts'
@@ -170,6 +171,7 @@ const HubSchema = mongoose.Schema({
     Purpose:String,
     TimePosted:String,
     Video:String,
+    thumbnail:String,
     creators:[{
             type:String
         }],
@@ -211,7 +213,9 @@ const ApplyJobSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hub'
     },
-    video:String
+    video:String,
+    thumbnail:String,
+
 
     
 })

@@ -31,6 +31,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         TimePosted: dateTime,
                         Purpose:req.body.Purpose,
                         Video: req.body.Video,
+               thumbnail:req.body.thumbnail,
                         creators: req.body.creators,
                         AboutPost:req.body.AboutPost,
                         HashtagHub:HashtagHub,
@@ -67,6 +68,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         Purpose:req.body.Purpose,
                         TimePosted: dateTime,
                         Video: req.body.Video,
+               thumbnail:req.body.thumbnail,
                         questionReason: req.body.questionReason,
                         AboutPost:req.body.AboutPost,
                         HashtagHub:HashtagHub,
@@ -104,6 +106,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         PostType: req.body.PostType,
                         TimePosted: dateTime,
                         Video: req.body.Video,
+               thumbnail:req.body.thumbnail,
                         jobCompanyName: req.body.jobCompanyName,
                         jobDescription: req.body.jobDescription,
                         Purpose:req.body.Purpose,
@@ -149,12 +152,12 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                         PostType: req.body.PostType,
                         TimePosted: dateTime,
                         Video: req.body.Video,
+               thumbnail:req.body.thumbnail,
                         Purpose:req.body.Purpose,
                         projectDescription: req.body.projectDescription,
                         Workedusers: req.body.Workedusers,
                         AboutPost:req.body.AboutPost,
                         HashtagHub:HashtagHub,
-
 
                     })
                     HubCenterCreate.save((error, result) => {
@@ -179,7 +182,6 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                     })
                 } else {
                     console.log("Invalid PostType")
-                    // res.send("Invalid PostType")
 
 
                 }
