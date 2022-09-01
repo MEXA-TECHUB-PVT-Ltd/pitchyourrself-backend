@@ -9,6 +9,6 @@ const GetAllUserHubs = app.get('/get-all-user-hubs', (req, res) => {
         } else {
             res.send(result)
         }
-    })
+    }).populate("userId")
 })
 module.exports = GetAllUserHubs

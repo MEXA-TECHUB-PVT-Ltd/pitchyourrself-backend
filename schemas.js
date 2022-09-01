@@ -22,6 +22,10 @@ const userSchema = mongoose.Schema({
     profession:String,
     bio:String,
     uploadDocument:String,
+    userPosts:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'hub'
+    }],
     profileVideoId:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userProfileVideo'
@@ -170,11 +174,14 @@ const HubSchema = mongoose.Schema({
     PostType:String,
     Purpose:String,
     TimePosted:String,
+    userSocialLinks:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserProfileLinks'
+    }],
     Video:String,
     thumbnail:String,
     creators:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        type:String
         }],
     questionReason:String,
     postCreaters:String,
@@ -194,8 +201,7 @@ const HubSchema = mongoose.Schema({
         type:String
     }],
     Workedusers:[{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        type:String
     }],
     HashtagHub:[{
         type:String

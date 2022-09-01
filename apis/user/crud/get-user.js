@@ -16,6 +16,7 @@ const GetUser = app.get('/get-user', (req, res) => {
     .populate("userAppliedJobsId")
     .populate("LikesUsersId")
     .populate("profileVideoId")
+    .populate("userPosts")
 
 
 })

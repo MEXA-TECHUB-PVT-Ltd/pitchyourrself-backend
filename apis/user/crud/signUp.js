@@ -21,6 +21,7 @@ const CreateUser = app.post('/signup-user', (req, res) => {
                     password: hashedPassword,
                     session: session,
                     profession: null,
+                    userPosts:[],
                     bio:null,
                     profileVideoId:[],
                     profileStatus:'Public',
