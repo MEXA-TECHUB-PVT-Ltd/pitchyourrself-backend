@@ -2,6 +2,10 @@ const express = require('express')
 const app = express()
 const { userProfileVideoModel, userModel } = require('../../../../schemas')
 const CompleteSocialLinkProfile = app.post('/create-profile-Video', (req, res) => {
+    const pdfData= req.body.pdf;
+    var matchPdf =pdfData.split(',');
+    const ImgData= req.body.Img;
+    var matchImg =ImgData.split(',');
     userModel.findById(req.body.userId, (error, result) => {
         if (error) {
             res.send(error)
@@ -16,8 +20,8 @@ const CompleteSocialLinkProfile = app.post('/create-profile-Video', (req, res) =
                         const newLinkProfile = new userProfileVideoModel({
                             userId: req.body.userId,
                             title: req.body.title,
-                            pdf: req.body.pdf,
-                            Img: req.body.Img,
+                            pdf: matchPdf,
+                            Img: matchImg,
                             link: req.body.link,
                             email: emailUser,
                             AddContactId: [],

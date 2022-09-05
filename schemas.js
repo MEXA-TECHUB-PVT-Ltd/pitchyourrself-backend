@@ -69,8 +69,12 @@ const userProfileVideoSchema = mongoose.Schema({
         ref: 'user'
     },
     title:String,
-    pdf:String,
-    Img:String,
+    pdf:[{
+        type:String
+    }],
+    Img:[{
+        type:String
+    }],
     link:String,
     email:String,
     thumbnail:String,
