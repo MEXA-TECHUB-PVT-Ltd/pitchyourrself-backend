@@ -9,6 +9,6 @@ const GetJobApplicants = app.get('/get-user-applications', (req, res) => {
         } else {
             res.send(result)
         }
-    })
+    }).populate("hubId")
 })
 module.exports = GetJobApplicants

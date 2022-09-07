@@ -247,6 +247,8 @@ const ApplyJobSchema = mongoose.Schema({
     },
     video:String,
     thumbnail:String,
+    Status:String,
+
 
 
     

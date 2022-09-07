@@ -111,6 +111,8 @@ require('./apis/user/operations/savedItems/remove-saved-hub'),
 require('./apis/user/operations/applyForJob/applyforjob'),
 require('./apis/user/operations/applyForJob/getJobApplicants'),
 require('./apis/user/operations/applyForJob/getUserAppliedJobs'),
+require('./apis/user/operations/applyForJob/changeStatus'),
+
 // Likes 
 require('./apis/user/operations/LikeProfileUser/hit-like'),
 require('./apis/user/operations/LikeProfileUser/unlike'),

@@ -14,7 +14,8 @@ const CompleteSocialLinkProfile = app.post('/apply-for-job', (req, res) => {
                 userId: req.body.userId,
                hubId:req.body.hubId,
                video:req.body.video,
-               thumbnail:req.body.thumbnail
+               thumbnail:req.body.thumbnail,
+               Status:"Unapproved"
             })
             NewJobApplicant.save((error, result) => {
                 if (error) {
