@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const adminSchema = mongoose.Schema({
     username: String,
     email: String,
-    image:String,
+    image: String,
     password: String,
     session: String,
 })
@@ -15,28 +15,28 @@ const adminjobPurposeSchema = mongoose.Schema({
 })
 const userSchema = mongoose.Schema({
     name: String,
-    image:String,
+    image: String,
     email: String,
-    password:String,
-    session:String,
-    profession:String,
-    bio:String,
-    uploadDocument:String,
-    userPosts:[{
+    password: String,
+    session: String,
+    profession: String,
+    bio: String,
+    uploadDocument: String,
+    userPosts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hub'
     }],
-    profileVideoId:[{
+    profileVideoId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userProfileVideo'
     }],
-    phoneNumber:String,
-    profileStatus:String,
-    ProfileHashtag:[{
-        type:String
+    phoneNumber: String,
+    profileStatus: String,
+    ProfileHashtag: [{
+        type: String
     }],
-    userTotalPosts:Number,
-    userAppliedJobsId:[{
+    userTotalPosts: Number,
+    userAppliedJobsId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ApplyJob'
     }],
@@ -44,7 +44,7 @@ const userSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'UserProfileLinks'
     }],
-    RecommendationsUserId:[{
+    RecommendationsUserId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'RecommentdationsUser'
     }],
@@ -52,13 +52,13 @@ const userSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'favouriteUsersProfile'
     }],
-    TotalLikes:Number,
-    savedHubsId:[{
+    TotalLikes: Number,
+    savedHubsId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'savedHubs'
     }],
-    verifyStatus:Boolean,
-    LikesUsersId:[{
+    verifyStatus: Boolean,
+    LikesUsersId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userLikesProfile'
     }],
@@ -68,23 +68,24 @@ const userProfileVideoSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    title:String,
-    pdf:[{
-        type:String
-    }],
+    title: String,
+    pdf: [{
+            type: String
+        }],
     Img:[{
-        type:String
+        type: String
     }],
-    link:String,
-    email:String,
-    thumbnail:String,
-    AddContactId:[{
+    link: String,
+    email: String,
+    thumbnail: String,
+    AddContactId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Contacts'
     }],
-    hidden:Boolean,
-    Downloadable:Boolean
+    hidden: Boolean,
+    Downloadable: Boolean
 })
+
 const ContactsSchema = mongoose.Schema({
     videoId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -94,12 +95,12 @@ const ContactsSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    contactName:String,
-    contactNumber:String,
-    contactImg:String,
-    contactProfession:String,
-    contactBio:String
-    
+    contactName: String,
+    contactNumber: String,
+    contactImg: String,
+    contactProfession: String,
+    contactBio: String
+
 })
 const userLikesProfileSchema = mongoose.Schema({
     userId: {
@@ -110,7 +111,7 @@ const userLikesProfileSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    
+
 })
 const favouriteUsersProfileSchema = mongoose.Schema({
     userId: {
@@ -121,27 +122,27 @@ const favouriteUsersProfileSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    FavUserName:String,
-    FavImage:String,
+    FavUserName: String,
+    FavImage: String,
     FavEmail: String,
-    FavProfession:String,
-    FavBio:String,
-    FavProfileVideo:String,
+    FavProfession: String,
+    FavBio: String,
+    FavProfileVideo: String,
 
-    
+
 })
 const RecommentdationsUserSchema = mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    CommenterId:{
+    CommenterId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    CommenterName:String,
-    CommenterImage:String,
-    Comment:String
+    CommenterName: String,
+    CommenterImage: String,
+    Comment: String
 
 })
 const UserProfileLinksSchema = mongoose.Schema({
@@ -160,66 +161,66 @@ const forgetPasswordSchema = mongoose.Schema({
 
 })
 const HelpCenterSchema = mongoose.Schema({
-    userId:String,
+    userId: String,
     email: String,
     name: String,
     details: String
 
 })
 const HubSchema = mongoose.Schema({
-    userId:{
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    AboutPost:String,
+    AboutPost: String,
     userImage: String,
-    userName:String,
+    userName: String,
     Title: String,
-    PostType:String,
-    Purpose:String,
-    TimePosted:String,
-    userSocialLinks:[{
+    PostType: String,
+    Purpose: String,
+    TimePosted: String,
+    userSocialLinks: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'UserProfileLinks'
     }],
-    Video:String,
-    thumbnail:String,
-    creators:[{
-        type:String
-        }],
-    questionReason:String,
-    postCreaters:String,
-    jobCompanyName:String,
-    jobDescription:String,
-    joblocation:String,
-    jobLong:String,
-    jobLat:String,
-    jobSalaryRange:String,
-    Startdate:String,
-    jobApplicantsId:[{
+    Video: String,
+    thumbnail: String,
+    creators: [{
+        type: String
+    }],
+    questionReason: String,
+    postCreaters: String,
+    jobCompanyName: String,
+    jobDescription: String,
+    joblocation: String,
+    jobLong: String,
+    jobLat: String,
+    jobSalaryRange: String,
+    Startdate: String,
+    jobApplicantsId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ApplyJob'
     }],
-    projectDescription:String,
-    Tag:[{
-        type:String
+    projectDescription: String,
+    Tag: [{
+        type: String
     }],
-    Workedusers:[{
-        type:String
+    Workedusers: [{
+        type: String
     }],
-    HashtagHub:[{
-        type:String
+    HashtagHub: [{
+        type: String
     }],
-    RecommendationsPitchId:[{
+    RecommendationsPitchId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'RecommentdationsPitch'
     }],
-    LikedBy:[{
+    LikedBy: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     }],
-    TotalLikes:Number,
-    SavedBy:[{
+    TotalLikes: Number,
+    SavedBy: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     }]
@@ -234,7 +235,7 @@ const userLikesHubSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    
+
 })
 const ApplyJobSchema = mongoose.Schema({
     userId: {
@@ -245,13 +246,13 @@ const ApplyJobSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hub'
     },
-    video:String,
-    thumbnail:String,
-    Status:String,
+    video: String,
+    thumbnail: String,
+    Status: String,
 
 
 
-    
+
 })
 const savedHubSchema = mongoose.Schema({
     userId: {
@@ -263,20 +264,20 @@ const savedHubSchema = mongoose.Schema({
         ref: 'hub'
     },
 
-    
+
 })
 const RecommentdationsPitchSchema = mongoose.Schema({
     hubId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hub'
     },
-    CommenterId:{
+    CommenterId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    CommenterName:String,
-    CommenterImage:String,
-    Comment:String
+    CommenterName: String,
+    CommenterImage: String,
+    Comment: String
 
 })
 

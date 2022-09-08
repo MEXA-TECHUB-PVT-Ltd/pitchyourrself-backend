@@ -20,6 +20,7 @@ const CompleteSocialLinkProfile = app.post('/create-profile-Video', (req, res) =
                             Img: req.body.Img,
                             link: req.body.link,
                             email: emailUser,
+                            thumbnail:req.body.thumbnail,
                             AddContactId: [],
                             hidden: req.body.hidden,
                             Downloadable: req.body.Downloadable

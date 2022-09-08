@@ -8,6 +8,7 @@ const UpdateVideo = app.put('/update-user-video', (req, res) => {
                 pdf: req.body.pdf,
                 Img: req.body.Img,
                 link: req.body.link,
+                thumbnail:req.body.thumbnail,
     }
     const options = {
         new: true
