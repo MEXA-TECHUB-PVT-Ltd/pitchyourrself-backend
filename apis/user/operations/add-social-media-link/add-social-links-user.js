@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const { UserProfileLinksModel, userModel } = require('../../../../schemas')
+const { UserProfileLinksModel, userModel, HubModel } = require('../../../../schemas')
 const CompleteSocialLinkProfile = app.post('/create-social-link', (req, res) => {
     userModel.findById(req.body.userId, (error, result) => {
         if (error) {
@@ -19,7 +19,7 @@ const CompleteSocialLinkProfile = app.post('/create-social-link', (req, res) => 
                     // Update User 
                     const updateData = {
                         $push: {
-                            UserProfileLinkId: result._id,
+                            UserProfileLinkId: result,
                         }
                     }
                     const options = {
@@ -27,6 +27,7 @@ const CompleteSocialLinkProfile = app.post('/create-social-link', (req, res) => 
                     }
                     userModel.findByIdAndUpdate(result.userId, updateData, options, (error, result) => {
                     })
+                    
                 }
             })
         }

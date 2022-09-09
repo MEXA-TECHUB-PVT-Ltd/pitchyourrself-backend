@@ -300,7 +300,6 @@ const savedHubModel = mongoose.model('savedHubs', savedHubSchema, 'savedHubs')
 const ApplyJobModel = mongoose.model('ApplyJob', ApplyJobSchema, 'ApplyJob')
 const userLikesProfileModel = mongoose.model('userLikesProfile', userLikesProfileSchema, 'userLikesProfile')
 const adminjobPurposeModel = mongoose.model('adminjobPurpose', adminjobPurposeSchema, 'adminjobPurpose')
-
 const userProfileVideoModel = mongoose.model('userProfileVideo', userProfileVideoSchema, 'userProfileVideo')
 const ContactsModel = mongoose.model('Contacts', ContactsSchema, 'Contacts')
 const userLikesHubModel = mongoose.model('userLikesHub', userLikesHubSchema, 'userLikesHub')
