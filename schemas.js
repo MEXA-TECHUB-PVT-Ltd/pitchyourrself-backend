@@ -215,6 +215,7 @@ const HubSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'RecommentdationsPitch'
     }],
+    TotalRecommendations: Number,
     LikedBy: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'

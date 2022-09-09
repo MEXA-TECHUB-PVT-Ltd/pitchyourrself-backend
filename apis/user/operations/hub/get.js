@@ -9,6 +9,6 @@ const GetUser = app.get('/get-hub', (req, res) => {
         } else {
             res.send(result)
         }
-    }).populate("jobApplicantsId").populate("userId").populate("userSocialLinks")
+    }).populate("jobApplicantsId").populate("userId").populate("userSocialLinks").populate("RecommendationsPitchId")
 })
 module.exports = GetUser

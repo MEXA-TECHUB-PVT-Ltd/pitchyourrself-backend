@@ -36,6 +36,8 @@ const GetAllUsers = app.get('/get-all-hubs-page', (req, res) => {
     }).populate("RecommendationsPitchId")
         .populate("jobApplicantsId")
         .populate("userId")
+        .populate("userSocialLinks")
+
 
 })
 module.exports = GetAllUsers

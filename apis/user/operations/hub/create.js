@@ -39,6 +39,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                                 Title: req.body.Title,
                                 PostType: req.body.PostType,
                                 TimePosted: dateTime,
+                                TotalRecommendations:0,
                                 Purpose: req.body.Purpose,
                                 Video: req.body.Video,
                                 TotalLikes: 0,
