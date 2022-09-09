@@ -22,12 +22,13 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
 
                         const HashtagHub = findHashtags(req.body.HashtagHub)
                         // console.log(HashtagHub);
-
-                UserProfileLinksModel.find({ UserId }, (error, result) => {
-                    if (error) {
-                        res.send(error)
-                    } else {
-                        // res.send(result)
+                        UserProfileLinksModel.find({userId: req.body.userId}, (error, result) => {
+                            if (error) {
+                                res.send(error)
+                            } else {
+                                // res.send(result)
+                           
+              
                         const userSocialLinks = result;
                      
                         if (PostType === 'post') {

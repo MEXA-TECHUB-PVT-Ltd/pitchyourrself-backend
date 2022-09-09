@@ -35,7 +35,8 @@ const CompleteSocialLinkProfile = app.post('/create-profile-Video', (req, res) =
                                 const updateData = {
                                     $push: {
                                         profileVideoId: result._id,
-                                    }
+                                    },
+                                    profileCompletedStatus:'Completed'
                                 }
                                 const options = {
                                     new: true

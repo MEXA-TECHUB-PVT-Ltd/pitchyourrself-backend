@@ -14,6 +14,7 @@ const UpdateUser = app.put('/update-user', (req, res) => {
         phoneNumber:req.body.phoneNumber,
         uploadDocument:req.body.uploadDocument,
         ProfileHashtag:ProfileHashtag,
+        profileCompletedStatus:'Not Completed'
     }
     const options = {
         new: true

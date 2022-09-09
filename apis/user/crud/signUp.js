@@ -36,7 +36,8 @@ const CreateUser = app.post('/signup-user', (req, res) => {
                     favouritesId:[],
                     savedHubsId:[],
                     LikesUsersId:[],
-                    ProfileHashtag:null
+                    ProfileHashtag:null,
+                    profileCompletedStatus:'Not Completed'
 
                 })
                 user.save((error, result) => {
