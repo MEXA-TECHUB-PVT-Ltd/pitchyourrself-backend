@@ -201,6 +201,7 @@ const HubSchema = mongoose.Schema({
     jobLat: String,
     jobSalaryRange: String,
     Startdate: String,
+    Enddate:String,
     jobApplicantsId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ApplyJob'

@@ -136,6 +136,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                                 jobSalaryRange: req.body.jobSalaryRange,
                                 jobApplicantsId: [],
                                 Startdate: req.body.Startdate,
+                                Enddate:req.body.Enddate,
                                 AboutPost: req.body.AboutPost,
                                 HashtagHub: HashtagHub,
                                 Tag: Tag

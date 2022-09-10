@@ -112,6 +112,8 @@ require('./apis/user/operations/applyForJob/applyforjob'),
 require('./apis/user/operations/applyForJob/getJobApplicants'),
 require('./apis/user/operations/applyForJob/getUserAppliedJobs'),
 require('./apis/user/operations/applyForJob/changeStatus'),
+require('./apis/user/operations/applyForJob/get-all-user-posted-jobs'),
+
 
 // Likes 
 require('./apis/user/operations/LikeProfileUser/hit-like'),
