@@ -17,7 +17,14 @@ if(name==null){
                 res.send(result)
             }
         }
-    })
+    }).populate("UserProfileLinkId")
+    .populate("RecommendationsUserId")
+    .populate("favouritesId")
+    .populate("savedHubsId")
+    .populate("userAppliedJobsId")
+    .populate("LikesUsersId")
+    .populate("profileVideoId")
+    .populate("userPosts")
 }
 
 

@@ -17,6 +17,7 @@ const GetUser = app.get('/get-user', (req, res) => {
     .populate("LikesUsersId")
     .populate("profileVideoId")
     .populate("userPosts")
+    .populate("uploadDocument")
 
 
 })

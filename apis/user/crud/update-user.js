@@ -12,7 +12,6 @@ const UpdateUser = app.put('/update-user', (req, res) => {
         profession:req.body.profession,
         bio:req.body.bio,
         phoneNumber:req.body.phoneNumber,
-        uploadDocument:req.body.uploadDocument,
         ProfileHashtag:ProfileHashtag,
         profileCompletedStatus:'Not Completed'
     }

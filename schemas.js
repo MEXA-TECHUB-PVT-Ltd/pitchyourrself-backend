@@ -21,7 +21,10 @@ const userSchema = mongoose.Schema({
     session: String,
     profession: String,
     bio: String,
-    uploadDocument: String,
+    uploadDocument: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userProfileDoc'
+    }],
     userPosts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hub'
@@ -88,6 +91,15 @@ const userProfileVideoSchema = mongoose.Schema({
     }],
     hidden: Boolean,
     Downloadable: Boolean
+})
+const userProfileDocSchema = mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
+   DocType:String,
+   DocLink:String,
+   UploadDate:String
 })
 
 const ContactsSchema = mongoose.Schema({
@@ -252,6 +264,7 @@ const ApplyJobSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hub'
     },
+    AppliedDate:String,
     video: String,
     thumbnail: String,
     Status: String,
@@ -304,6 +317,8 @@ const adminjobPurposeModel = mongoose.model('adminjobPurpose', adminjobPurposeSc
 const userProfileVideoModel = mongoose.model('userProfileVideo', userProfileVideoSchema, 'userProfileVideo')
 const ContactsModel = mongoose.model('Contacts', ContactsSchema, 'Contacts')
 const userLikesHubModel = mongoose.model('userLikesHub', userLikesHubSchema, 'userLikesHub')
+const userProfileDocModel = mongoose.model('userProfileDoc', userProfileDocSchema, 'userProfileDoc')
+
 
 
 
@@ -324,7 +339,8 @@ module.exports = {
     favouriteUsersProfileModel,
     savedHubModel,
     ApplyJobModel,
-    userProfileVideoModel
+    userProfileVideoModel,
+    userProfileDocModel
 
 
 }

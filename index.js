@@ -140,6 +140,15 @@ require('./apis/user/operations/addContacts/removeContact'),
 // require('./apis/user/operations/LikeHub/get-all-users-liked-hubs'),
 require('./apis/user/operations/LikeHub/hit-like-hub'),
 require('./apis/user/operations/LikeHub/unlike-hub'),
+// Upload Doc 
+require('./apis/user/operations/uploadProfileDoc/uploadDoc'),
+require('./apis/user/operations/uploadProfileDoc/deleteDoc'),
+require('./apis/user/operations/uploadProfileDoc/updateDoc'),
+require('./apis/user/operations/uploadProfileDoc/viewAllDoc'),
+require('./apis/user/operations/uploadProfileDoc/viewDoc'),
+require('./apis/user/operations/uploadProfileDoc/viewUserDoc'),
+
+
 
 )
 app.listen(PORT, () => {

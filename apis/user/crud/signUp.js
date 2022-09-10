@@ -28,7 +28,7 @@ const CreateUser = app.post('/signup-user', (req, res) => {
                     phoneNumber:null,
                     userTotalPosts:0,
                     TotalLikes:0,
-                    uploadDocument:null,
+                    uploadDocument:[],
                     verifyStatus:true,
                     userAppliedJobsId:[],
                     UserProfileLinkId:[],
