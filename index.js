@@ -2,6 +2,7 @@ require("./db/conn");
 const PORT = 4000
 const express = require('express')
 const app = express()
+const socket = require("socket.io");
 const path = require('path')
 const cors = require('cors')
 app.use(express.json())
@@ -54,6 +55,28 @@ app.use('/admin',
 ///////////////////////////////User APIS////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 app.use('/user',
+// Notification 
+require('./apis/notification/create-msg'),
+require('./apis/notification/delete-msg'),
+require('./apis/notification/get-all-msg'),
+require('./apis/notification/get-msg'),
+require('./apis/notification/get-to-notification'),
+require('./apis/notification/read-msg'),
+// Report 
+require('./apis/user/operations/reportUser/reportPost'),
+require('./apis/user/operations/reportUser/getAllReports'),
+require('./apis/user/operations/reportUser/getReport'),
+require('./apis/user/operations/reportUser/deleteReport'),
+// Msg 
+require('./apis/socketsChat/addMsg'),
+require('./apis/socketsChat/getMsg'),
+
+
+
+
+
+
+
 // User
 require('./apis/user/crud/signIn'),
 require('./apis/user/crud/signUp'),
@@ -151,6 +174,28 @@ require('./apis/user/operations/uploadProfileDoc/viewUserDoc'),
 
 
 )
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is started in PORT no ${PORT}`)
+});
+// Sockets
+const io = socket(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    credentials: true,
+  },
+});
+
+global.onlineUsers = new Map();
+io.on("connection", (socket) => {
+  global.chatSocket = socket;
+  socket.on("add-user", (userId) => {
+    onlineUsers.set(userId, socket.id);
+  });
+
+  socket.on("send-msg", (data) => {
+    const sendUserSocket = onlineUsers.get(data.to);
+    if (sendUserSocket) {
+      socket.to(sendUserSocket).emit("msg-recieve", data.msg);
+    }
+  });
 });

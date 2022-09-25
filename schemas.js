@@ -77,9 +77,9 @@ const userProfileVideoSchema = mongoose.Schema({
     },
     title: String,
     pdf: [{
-            type: String
-        }],
-    Img:[{
+        type: String
+    }],
+    Img: [{
         type: String
     }],
     link: String,
@@ -97,9 +97,9 @@ const userProfileDocSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-   DocType:String,
-   DocLink:String,
-   UploadDate:String
+    DocType: String,
+    DocLink: String,
+    UploadDate: String
 })
 
 const ContactsSchema = mongoose.Schema({
@@ -213,7 +213,7 @@ const HubSchema = mongoose.Schema({
     jobLat: String,
     jobSalaryRange: String,
     Startdate: String,
-    Enddate:String,
+    Enddate: String,
     jobApplicantsId: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ApplyJob'
@@ -264,7 +264,7 @@ const ApplyJobSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hub'
     },
-    AppliedDate:String,
+    AppliedDate: String,
     video: String,
     thumbnail: String,
     Status: String,
@@ -299,8 +299,45 @@ const RecommentdationsPitchSchema = mongoose.Schema({
     Comment: String
 
 })
+const notificationSchema = mongoose.Schema({
+    from: String,
+    to: String,
+    msgContent: String,
+    dateTime: String,
+    readStatus: Boolean
+
+})
+const reportSchema = mongoose.Schema({
+    userProfileId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    userPostId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'hub'
+    },
+    reportReason: String,
+    reportedById: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
+
+})
+const MessageSchema = mongoose.Schema({
+    message: {
+        text: { type: String, required: true },
+      },
+      users: Array,
+      sender: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+        required: true,
+      },
+})
+
 
 const adminModel = mongoose.model('admin', adminSchema, 'admin')
+const Notification = mongoose.model('notification', notificationSchema, 'notification')
 const adminSocialLinkModel = mongoose.model('adminSocialLink', adminSocialLinkSchema, 'adminSocialLink')
 const userModel = mongoose.model('user', userSchema, 'user')
 const forgetPasswordModel = mongoose.model('forgetPassword', forgetPasswordSchema, 'forgetPassword')
@@ -318,12 +355,15 @@ const userProfileVideoModel = mongoose.model('userProfileVideo', userProfileVide
 const ContactsModel = mongoose.model('Contacts', ContactsSchema, 'Contacts')
 const userLikesHubModel = mongoose.model('userLikesHub', userLikesHubSchema, 'userLikesHub')
 const userProfileDocModel = mongoose.model('userProfileDoc', userProfileDocSchema, 'userProfileDoc')
-
-
+const reportModel = mongoose.model('report', reportSchema, 'report')
+const MessageModel = mongoose.model('Message', MessageSchema, 'Message')
 
 
 module.exports = {
     adminModel,
+    MessageModel,
+    reportModel,
+    Notification,
     userLikesHubModel,
     ContactsModel,
     adminjobPurposeModel,
