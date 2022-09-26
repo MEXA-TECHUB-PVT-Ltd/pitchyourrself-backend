@@ -5,8 +5,8 @@ const { Notification } = require('../../schemas')
 
 const UpdateAppointment = app.put('/read-notification', (req, res) => {
     const findReceiver = {
-        to: req.body.ReceiverId,
-        from: req.body.SenderId
+        
+        _id: req.body._id,
 
     }
     const updateData = {
