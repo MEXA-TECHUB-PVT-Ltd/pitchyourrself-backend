@@ -18,10 +18,6 @@ const CreateMsg = app.post('/add-msg-socket', (req, res,next) => {
       }
 })
 
-// module.exports.addMessage = async (req, res, next) => {
-   
-//   };
-
 module.exports = CreateMsg
 
   

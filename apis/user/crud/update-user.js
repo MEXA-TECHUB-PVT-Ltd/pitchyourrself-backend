@@ -13,7 +13,6 @@ const UpdateUser = app.put('/update-user', (req, res) => {
         bio:req.body.bio,
         phoneNumber:req.body.phoneNumber,
         ProfileHashtag:ProfileHashtag,
-        profileCompletedStatus:'Not Completed'
     }
     const options = {
         new: true

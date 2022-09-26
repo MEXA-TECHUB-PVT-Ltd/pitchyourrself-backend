@@ -178,7 +178,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                                 thumbnail: req.body.thumbnail,
                                 Purpose: req.body.Purpose,
                                 projectDescription: req.body.projectDescription,
-                                Workedusers: req.body.Workedusers,
+                                Workedusers: [],
                                 AboutPost: req.body.AboutPost,
                                 HashtagHub: HashtagHub,
                             })

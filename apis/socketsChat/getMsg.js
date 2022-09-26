@@ -23,8 +23,5 @@ const GetMsg = app.get('/get-msg-socket', (req, res, next) => {
         next(ex);
     }
 })
-// module.exports.getMessages = async (req, res, next) => {
-// };
-
 
 module.exports = GetMsg

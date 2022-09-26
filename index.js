@@ -70,6 +70,11 @@ require('./apis/user/operations/reportUser/deleteReport'),
 // Msg 
 require('./apis/socketsChat/addMsg'),
 require('./apis/socketsChat/getMsg'),
+// Collab project Hub 
+require('./apis/user/operations/hub/workedUsers/create'),
+require('./apis/user/operations/hub/workedUsers/delete'),
+require('./apis/user/operations/hub/workedUsers/get-all-hubsColab'),
+
 
 
 

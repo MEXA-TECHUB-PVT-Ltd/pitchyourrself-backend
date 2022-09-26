@@ -223,7 +223,8 @@ const HubSchema = mongoose.Schema({
         type: String
     }],
     Workedusers: [{
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'WorkedUser'
     }],
     HashtagHub: [{
         type: String
@@ -242,6 +243,19 @@ const HubSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     }]
+
+})
+const WorkedUserSchema = mongoose.Schema({
+    hubId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'hub'
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
+    userName:String,
+    // Status:String
 
 })
 const userLikesHubSchema = mongoose.Schema({
@@ -357,6 +371,7 @@ const userLikesHubModel = mongoose.model('userLikesHub', userLikesHubSchema, 'us
 const userProfileDocModel = mongoose.model('userProfileDoc', userProfileDocSchema, 'userProfileDoc')
 const reportModel = mongoose.model('report', reportSchema, 'report')
 const MessageModel = mongoose.model('Message', MessageSchema, 'Message')
+const WorkedUserModel = mongoose.model('WorkedUser', WorkedUserSchema, 'WorkedUser')
 
 
 module.exports = {
@@ -380,7 +395,8 @@ module.exports = {
     savedHubModel,
     ApplyJobModel,
     userProfileVideoModel,
-    userProfileDocModel
+    userProfileDocModel,
+    WorkedUserModel
 
 
 }
