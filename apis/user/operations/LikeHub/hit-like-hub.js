@@ -27,7 +27,7 @@ const Pitchike = app.post('/add-hub-like', (req, res) => {
                             if (error) {
                                 res.send(error)
                             } else {
-                                res.send(result)
+                                // res.send(result)
                                 // Update User 
                                 const updateData = {
                                     $push: {
@@ -42,7 +42,7 @@ const Pitchike = app.post('/add-hub-like', (req, res) => {
                                     if (error) {
                                         res.send(error)
                                     } else {
-                                        // res.send(result)
+                                        res.send(result)
                                     }
                                 })
                             }

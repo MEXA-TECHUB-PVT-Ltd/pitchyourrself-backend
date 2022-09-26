@@ -7,7 +7,7 @@ const CommentPitch = app.post('/create-pitch-comment', (req, res) => {
             res.send(error)
         } else {
             // res.send(result)
-            const RecommendationAdd  =parseInt(result.TotalRecommendations) + parseInt(1)
+            // const RecommendationAdd  =parseInt(result.TotalRecommendations) + parseInt(1)
             userModel.findById(req.body.CommenterId, (error, result) => {
                 if (error) {
                     res.send(error)
@@ -26,18 +26,23 @@ const CommentPitch = app.post('/create-pitch-comment', (req, res) => {
                         if (error) {
                             res.send(error)
                         } else {
-                            res.send(result)
+                            // res.send(result)
                             // Update User 
                             const updateData = {
                                 $push: {
                                     RecommendationsPitchId: result._id,
                                 },
-                                TotalRecommendations: RecommendationAdd
+                                // TotalRecommendations: RecommendationAdd
                             }
                             const options = {
                                 new: true
                             }
                             HubModel.findByIdAndUpdate(result.hubId, updateData, options, (error, result) => {
+                                if (error) {
+                                    res.send(error)
+                                } else {
+                                    res.send(result)
+                                }
                             })
                         }
                     })
