@@ -17,6 +17,8 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                 // res.send(result)
                    const userTotalPost = result.userTotalPosts;
                         const userName = result.name;
+                        const userProfileVideoId = result.profileVideoId;
+// console.log(userProfileVideoId)
                         const UserImage = result.image;
                         // const UserImage = result.image;
 
@@ -40,6 +42,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                                 Title: req.body.Title,
                                 PostType: req.body.PostType,
                                 TimePosted: dateTime,
+                                userProfileVideoId:userProfileVideoId,
                                 TotalRecommendations:0,
                                 Purpose: req.body.Purpose,
                                 Video: req.body.Video,
@@ -84,6 +87,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                                 PostType: req.body.PostType,
                                 Purpose: req.body.Purpose,
                                 TimePosted: dateTime,
+                                userProfileVideoId:userProfileVideoId,
                                 Video: req.body.Video,
                                 TotalLikes: 0,
                                 thumbnail: req.body.thumbnail,
@@ -124,6 +128,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                                 Title: req.body.Title,
                                 PostType: req.body.PostType,
                                 TimePosted: dateTime,
+                                userProfileVideoId:userProfileVideoId,
                                 Video: req.body.Video,
                                 TotalLikes: 0,
                                 thumbnail: req.body.thumbnail,
@@ -173,6 +178,7 @@ const CreateQuery = app.post('/create-hub', (req, res) => {
                                 Title: req.body.Title,
                                 PostType: req.body.PostType,
                                 TimePosted: dateTime,
+                                userProfileVideoId:userProfileVideoId,
                                 Video: req.body.Video,
                                 TotalLikes: 0,
                                 thumbnail: req.body.thumbnail,

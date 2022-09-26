@@ -199,6 +199,10 @@ const HubSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'UserProfileLinks'
     }],
+    userProfileVideoId: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'userProfileVideo'
+    }],
     Video: String,
     thumbnail: String,
     creators: [{
