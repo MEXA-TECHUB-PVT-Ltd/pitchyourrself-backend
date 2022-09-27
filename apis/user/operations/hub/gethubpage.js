@@ -38,7 +38,6 @@ const GetAllUsers = app.get('/get-all-hubs-page', (req, res) => {
         .populate("userId")
         .populate("userSocialLinks")
         .populate("userProfileVideoId")
-        // .populate("profileVideoId")
 
 
 })
