@@ -6,6 +6,8 @@ const CreateWorkedUser = app.post('/create-workedUser', (req, res) => {
    
     const workedUser = new WorkedUserModel({
         hubId: req.body.hubId,
+        // hubId:null,
+
         userId: req.body.userId,
         userName:req.body.userName
        

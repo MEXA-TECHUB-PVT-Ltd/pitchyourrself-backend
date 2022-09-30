@@ -8,6 +8,7 @@ const GetUserWishlists = app.get('/get-all-user-saved-hubs', (req, res) => {
             res.send(error)
         } else {
             res.send(result)
+           
         }
     }).populate("hubId")
 })

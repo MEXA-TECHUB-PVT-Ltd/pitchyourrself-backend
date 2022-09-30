@@ -282,6 +282,7 @@ const ApplyJobSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hub'
     },
+    HubUserId:String,
     AppliedDate: String,
     video: String,
     thumbnail: String,
@@ -320,6 +321,8 @@ const RecommentdationsPitchSchema = mongoose.Schema({
 const notificationSchema = mongoose.Schema({
     from: String,
     to: String,
+    toName:String,
+    toImg:String,
     msgContent: String,
     dateTime: String,
     readStatus: Boolean

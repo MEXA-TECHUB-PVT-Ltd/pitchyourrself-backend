@@ -1,5 +1,5 @@
 const express = require('express')
-const { WorkedUserModel } = require('../../../../../schemas')
+const { WorkedUserModel, HubModel } = require('../../../../../schemas')
 const app = express()
 
 const GetAllcollabHubs = app.get('/get-all-collabHubs', (req, res) => {

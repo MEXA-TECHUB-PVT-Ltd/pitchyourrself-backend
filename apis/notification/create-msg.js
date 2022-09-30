@@ -1,22 +1,35 @@
 const express = require('express')
 const app = express()
-const {Notification } = require('../../schemas')
+const { Notification, userModel } = require('../../schemas')
 
 const CreateNotification = app.post('/create-msg', (req, res) => {
-   
-    const notificationMessage = new Notification({
-        from: req.body.from,
-        to: req.body.to,
-        msgContent: req.body.msgContent,
-        dateTime: req.body.dateTime,
-        readStatus:false
-    })
-    notificationMessage.save((error, result) => {
+    const toUser = req.body.to;
+    userModel.findById(toUser, (error, result) => {
         if (error) {
             res.send(error)
         } else {
-            res.send(result)
+            // res.send(result)
+            const ToName = result.name
+            const ToImg = result.image
+            const notificationMessage = new Notification({
+                from: req.body.from,
+                to: req.body.to,
+                toName: ToName,
+                toImg: ToImg,
+                msgContent: req.body.msgContent,
+                dateTime: req.body.dateTime,
+                readStatus: false
+            })
+            notificationMessage.save((error, result) => {
+                if (error) {
+                    res.send(error)
+                } else {
+                    res.send(result)
+                }
+            })
+
         }
     })
+
 })
 module.exports = CreateNotification
