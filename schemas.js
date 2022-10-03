@@ -167,6 +167,7 @@ const UserProfileLinksSchema = mongoose.Schema({
         ref: 'user'
     },
     icon: String,
+    iconUrl:String,
     link: String
 
 })

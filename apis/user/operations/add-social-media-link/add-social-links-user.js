@@ -9,7 +9,8 @@ const CompleteSocialLinkProfile = app.post('/create-social-link', (req, res) => 
                 const newLinkProfile = new UserProfileLinksModel({
                 userId: req.body.userId,
                icon:req.body.icon,
-               link:req.body.link
+               link:req.body.link,
+               iconUrl:req.body.iconUrl
             })
             newLinkProfile.save((error, result) => {
                 if (error) {
