@@ -10,6 +10,7 @@ app.use(express.urlencoded())
 app.use(cors())
 
 app.use('/file-uploads', express.static('file-uploads'))
+
 app.use('/image-uploads', express.static('image-uploads'))
 app.use('/video-uploads', express.static('video-uploads'))
 
@@ -30,6 +31,8 @@ app.use('/upload-image', require('./apis/upload-image'))
 app.use('/upload-video', require('./apis/upload-video'))
 app.use('/upload-multiple-images', require('./apis/upload-multiple-images'))
 app.use('/upload-file', require('./apis/upload-file'))
+app.use('/upload-multiple-files', require('./apis/upload-multiple-files'))
+
 
 
 

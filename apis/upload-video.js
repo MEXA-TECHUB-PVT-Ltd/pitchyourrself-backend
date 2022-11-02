@@ -30,20 +30,22 @@ const upload = multer({
 const UploadVideo = app.post('/', upload.single('video'), (req, res) => {
     try {
         const videoUpload = req.file.path
-        getVideoDurationInSeconds(req.file.path)
-            .then(duration => {
-                // console.log(duration)
-                const minutes = Math.floor(duration / 60)
-                const seconds = Math.round(duration - minutes * 60)
+        // getVideoDurationInSeconds(req.file.path)
+        //     .then(duration => {
+        //         // console.log(duration)
+        //         const minutes = Math.floor(duration / 60)
+        //         const seconds = Math.round(duration - minutes * 60)
                 // console.log()
-                res.status(200).send({
-                    path: videoUpload,
-                    duration: minutes + ':' + seconds
-                })
-            })
-            .catch(error => {
-                console.log(error)
-            })
+                res.status(200).send(req.file.path
+                //     {
+                //     path: videoUpload,
+                //     duration: minutes + ':' + seconds
+                // }
+                )
+            // })
+            // .catch(error => {
+            //     console.log(error)
+            // })
     } catch (error) {
         res.send(error)
     }
